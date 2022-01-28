@@ -1,0 +1,94 @@
+---
+title: "String Basics Activity"
+author: "Bastola"
+date: "`r format(Sys.Date(), ' %B %d %Y')`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      collapse = TRUE, 
+                      comment=NA, 
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.height = 4, fig.width = 6, fig.align='center')
+
+
+
+library(tidyverse) 
+library(tidyr)
+library(forcats)
+library(readr)
+library(stringr)
+
+```
+
+
+## Your turn 1
+
+```{r}
+set.seed(123)
+cell_info <- str_c(
+  str_c("Specimen", 1:12),
+  sample(c("RNA", "DNA"), 12, replace = TRUE),
+  sample(c("H5N1", "SARS5", "COV19"), 12, replace = TRUE),
+  sample(seq(as.Date('2022/01/01'), as.Date('2022/06/01'),
+             by="day"), 12),
+  sep = "_"
+)
+
+cell_info
+```
+
+### a. Subset the string `cell_info` into a vector that collects strings containing "RNA".
+
+```{r}
+
+```
+
+### b. Subset the string `cell_info` into a vector that collects strings ending with "7".
+
+```{r}
+
+```
+
+### c. Explain what the following code does?
+
+```{r}
+str_subset(cell_info, pattern = "Specimen\\d*")
+```
+
+### d. Write the code to extract the string "Specimen" with their corresponding number.
+
+```{r}
+
+```
+
+
+### e. Split all instances of strings in `cell_info` that are separated by "_" to produce both list and matrix.
+
+```{r}
+str_split(cell_info, pattern = ___)
+```
+
+```{r}
+str_split(cell_info, pattern = ____, ____)
+```
+
+### f. What does the following chunk of code do?
+
+```{r}
+str_remove(cell_info, "^Specimen")
+```
+
+### g. Use `str_replace` to achieve the same thing as in part f.
+
+```{r}
+
+```
+
+
+
